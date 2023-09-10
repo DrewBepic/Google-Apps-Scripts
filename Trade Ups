@@ -1,0 +1,299 @@
+/** @OnlyCurrentDoc */
+
+function myFunction() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  spreadsheet.getRange('A:D').activate();
+  spreadsheet.setCurrentCell(spreadsheet.getRange('D1'));
+  spreadsheet.getActiveRange().sort({column: 4, ascending: false});
+};
+
+function SortFloatand$correction() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  spreadsheet.getRange('A:D').activate();
+  spreadsheet.setCurrentCell(spreadsheet.getRange('D1'));
+  spreadsheet.getActiveRange().sort({column: 4, ascending: false});
+  spreadsheet.getRange('D:D').activate();
+  spreadsheet.getActiveRangeList().setNumberFormat('0.00000000000000000')
+  .setNumberFormat('0.0000000000000000');
+  spreadsheet.getRange('C:C').activate();
+  spreadsheet.getActiveRangeList().setNumberFormat('"$"#,##0.00');
+};
+
+function ColumnOto$() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  spreadsheet.getRange('O9:O20').activate();
+  spreadsheet.getActiveRangeList().setNumberFormat('"$"#,##0.00');
+};
+
+function STSlateUsedFloatsMover() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  var SkinsUsed = spreadsheet.getRange('L1').getValue().toString();
+  var StartSubString = 0;
+  var CurrentFloat = parseFloat(SkinsUsed.substring(StartSubString,15).trim()).toFixed(6);
+  var FloatCounter = 0;
+  var Startpaste = 10;
+  while(FloatCounter < 10){
+    var x = true;
+    var y = true;
+    var c = 1;
+    while(y){
+      while(x){
+        if(spreadsheet.getRange('D' + c.toString()).getValue() == ''){
+          x = false;
+        }
+        var cellData = parseFloat(spreadsheet.getRange('D' + c.toString()).getValue()).toFixed(6);
+        if(cellData == CurrentFloat){
+          spreadsheet.getRange('M' + Startpaste.toString()).setValue(spreadsheet.getRange('A' + c.toString()).getValue());
+          spreadsheet.getRange('N' + Startpaste.toString()).setValue(spreadsheet.getRange('B' + c.toString()).getValue());
+          spreadsheet.getRange('O' + Startpaste.toString()).setValue(spreadsheet.getRange('C' + c.toString()).getValue());
+          spreadsheet.getRange('P' + Startpaste.toString()).setValue(spreadsheet.getRange('D' + c.toString()).getValue());
+          spreadsheet.getRange('A' + c.toString()).setValue('');
+          spreadsheet.getRange('B' + c.toString()).setValue('');
+          spreadsheet.getRange('C' + c.toString()).setValue('');
+          spreadsheet.getRange('D' + c.toString()).setValue('');
+          Startpaste = Startpaste + 1;
+          FloatCounter = FloatCounter + 1;
+          StartSubString = StartSubString + 15
+          StartSubString = StartSubString + (SkinsUsed.substring(StartSubString).indexOf('.')) - 1
+          CurrentFloat = parseFloat(SkinsUsed.substring(StartSubString,StartSubString + 15).trim()).toFixed(6);
+          y = false;
+        }
+        c = c + 1;
+      }
+      c = 1;
+      x = true;
+      while(x){
+        if(spreadsheet.getRange('I' + c.toString()).getValue() == ''){
+          x = false;
+        }
+        var cellData = parseFloat(spreadsheet.getRange('I' + c.toString()).getValue()).toFixed(6);
+        if(cellData == CurrentFloat){
+          spreadsheet.getRange('M' + Startpaste.toString()).setValue(spreadsheet.getRange('F' + c.toString()).getValue());
+          spreadsheet.getRange('N' + Startpaste.toString()).setValue(spreadsheet.getRange('G' + c.toString()).getValue());
+          spreadsheet.getRange('O' + Startpaste.toString()).setValue(spreadsheet.getRange('H' + c.toString()).getValue());
+          spreadsheet.getRange('P' + Startpaste.toString()).setValue(spreadsheet.getRange('I' + c.toString()).getValue());
+          spreadsheet.getRange('F' + c.toString()).setValue('');
+          spreadsheet.getRange('G' + c.toString()).setValue('');
+          spreadsheet.getRange('H' + c.toString()).setValue('');
+          spreadsheet.getRange('I' + c.toString()).setValue('');
+          Startpaste = Startpaste + 1;
+          FloatCounter = FloatCounter + 1;
+          StartSubString = StartSubString + 15
+          StartSubString = StartSubString + (SkinsUsed.substring(StartSubString).indexOf('.')) - 1
+          CurrentFloat = parseFloat(SkinsUsed.substring(StartSubString,StartSubString + 15).trim()).toFixed(6);
+          y = false;
+        }
+        c = c + 1;
+      }
+    }
+  }
+  ColumnOto$()
+}
+
+function FNIceCoaledMover() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  var SkinsUsed = spreadsheet.getRange('L1').getValue().toString();
+  var StartSubString = 0;
+  var CurrentFloat = parseFloat(SkinsUsed.substring(StartSubString,15).trim()).toFixed(6);
+  var FloatCounter = 0;
+  var Startpaste = 6;
+  while(FloatCounter < 10){
+    var x = true;
+    var y = true;
+    var c = 1;
+    while(y){
+      while(x){
+        if(spreadsheet.getRange('D' + c.toString()).getValue() == ''){
+          x = false;
+        }
+        var cellData = parseFloat(spreadsheet.getRange('D' + c.toString()).getValue()).toFixed(6);
+        if(cellData == CurrentFloat){
+          spreadsheet.getRange('G' + Startpaste.toString()).setValue(spreadsheet.getRange('A' + c.toString()).getValue());
+          spreadsheet.getRange('H' + Startpaste.toString()).setValue(spreadsheet.getRange('B' + c.toString()).getValue());
+          spreadsheet.getRange('I' + Startpaste.toString()).setValue(spreadsheet.getRange('C' + c.toString()).getValue());
+          spreadsheet.getRange('J' + Startpaste.toString()).setValue(spreadsheet.getRange('D' + c.toString()).getValue());
+          spreadsheet.getRange('A' + c.toString()).setValue('');
+          spreadsheet.getRange('B' + c.toString()).setValue('');
+          spreadsheet.getRange('C' + c.toString()).setValue('');
+          spreadsheet.getRange('D' + c.toString()).setValue('');
+          Startpaste = Startpaste + 1;
+          FloatCounter = FloatCounter + 1;
+          StartSubString = StartSubString + 15
+          StartSubString = StartSubString + (SkinsUsed.substring(StartSubString).indexOf('.')) - 1
+          CurrentFloat = parseFloat(SkinsUsed.substring(StartSubString,StartSubString + 15).trim()).toFixed(6);
+          y = false;
+        }
+        c = c + 1;
+      }
+    }
+  }
+}
+
+function fetchAndParseJSONCSMoney(url) {
+  var response = UrlFetchApp.fetch(url);
+  var json = response.getContentText();
+  var data = JSON.parse(json);
+  return data["defaultPrice"] * .93; // Change this to the specific field you want
+}
+
+
+function fetchAndParseJSONSwap(url, skinsName) {
+  var response = UrlFetchApp.fetch(url);
+  var json = response.getContentText();
+  var data = JSON.parse(json);
+  var firstStep = data.result;
+  for (var i = 0; i < firstStep.length; i++) {
+    var jsonObject = firstStep[i];
+    var name = jsonObject['marketName'];
+    if(name == skinsName){
+      return jsonObject['price']['value'] / 100
+    }
+  }
+}
+
+function fetchAndParseJSONDmarket(url){
+  var response = UrlFetchApp.fetch(url);
+  var json = response.getContentText();
+  var data = JSON.parse(json);
+  var firstStep = data.avgPrice;
+  var lastIndex = firstStep.length - 1;
+  return firstStep[lastIndex] *.975;
+}
+
+function fetchAndParseJSONCSTrade(url,skinName){
+  var response = UrlFetchApp.fetch(url);
+  var json = response.getContentText();
+  var data = JSON.parse(json);
+  return (data[skinName]["price"] / 1.075) - 0.01;
+}
+
+function fetchAndParseJSONLootFarm(url,skinName){
+  var response = UrlFetchApp.fetch(url);
+  var json = response.getContentText();
+  var data = JSON.parse(json);
+  for (const obj of data) {
+    if(obj.name == skinName){
+      return obj.price / 105.3;
+    }
+  }
+}
+
+function fetchANdParseJSONTradeIt(url,skinName,percentPrice){
+  var response = UrlFetchApp.fetch(url);
+  var json = response.getContentText();
+  var data = JSON.parse(json);
+  var items = data.items;
+  for (var i = 0; i < items.length; i++) {
+    var jsonObject = items[i];
+    var name = jsonObject["name"]
+    if(name == skinName){
+      return jsonObject["sitePrice"] * percentPrice / 100;
+    }
+  }
+}
+
+function TradeUpSpyURLBuilder(namesRangeInput,staty,floatsRange,priceInputRange,namesRangeOutput,priceOutputRange){
+  //https://www.tradeupspy.com/calculator/share/Trade%20Up%20%232/false/5/0.10060717,0.0992208123207092,0.0957760065793991,0.09491497,0.09428632,0.09135614,0.09019315,0.08641733,0.07946001,0.0768587/6323,6322,6322,6324,6325,6324,6326,6325,6323,6325/6321,6320,6319/1.58,1.02,1.9,1.61,1.73,1.28,1.62,1.68,1.57,1.53/36.748450000000005,17.677460000000004,8.707955000000002
+  var all = "https://www.tradeupspy.com/calculator/share/Trade%20Up%20%232/"
+  var stattrak = "false";
+  var idfk = "/5/"
+  if(staty){
+    stattrak = "true";
+  }
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var values = sheet.getRange(floatsRange);
+  var floats = customJoinCol(",",values) + "/";
+  var namesInput = sheet.getRange(namesRangeInput).getValues();
+  var nameIds = "";
+  for(var name of namesInput){
+    if(name[0] == "Vent Rush"){
+      nameIds = nameIds + "6323,";
+    }else if(name[0] == "Crazy 8"){
+      nameIds = nameIds + "6326,";
+    }else if(name[0] == "Downtown"){
+      nameIds = nameIds + "6325,";
+    }else if(name[0] == "Flora Carnivora"){
+      nameIds = nameIds + "6322,";
+    }else if(name[0] == "Dragon Tech"){
+      nameIds = nameIds + "6324,";
+    }
+  }
+  namedsInput = nameIds.slice(0, -1);
+  var namesOutput = sheet.getRange(namesRangeOutput).getValues();
+  var nameIdsOutput = "/";
+  for(var name of namesOutput[0]){
+    if(name == "Ice Coaled"){
+      nameIdsOutput = nameIdsOutput + "6321,";
+    }else if(name == "Visions"){
+      nameIdsOutput = nameIdsOutput + "6320,";
+    }else if(name == "KissLove"){
+      nameIdsOutput = nameIdsOutput + "6319,";
+    }
+  }
+  nameIdsOutput = nameIdsOutput.slice(0,-1) + "/";
+  var inputPrices = customJoinCol(",",sheet.getRange(priceInputRange));
+  var outputPrices = customJoinRow(",",sheet.getRange(priceOutputRange));
+
+  return all + stattrak + idfk + floats + namedsInput + nameIdsOutput + inputPrices + "/" + outputPrices;
+
+}
+
+function customJoinCol(delimiter, range) {
+  var values = range.getValues();
+  var result = '';
+  for (var i = 0; i < values.length; i++) {
+    if (i > 0) {
+      result += delimiter;
+    }
+    result += values[i][0];
+  }
+  return result;
+}
+
+function customJoinRow(delimiter, range) {
+  var values = range.getValues();
+  var result = '';
+  for (var i = 0; i < values[0].length; i++) {
+    if (i > 0) {
+      result += delimiter;
+    }
+    result += values[0][i];
+  }
+  return result;
+}
+
+function ColorRed() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  sheet.getRange('J10').setBackgroundColor('#ff0000');
+}
+
+function ColorGreen() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  sheet.getRange('J10').setBackgroundColor('#00ff00');
+}
+
+function skinsMonkeyDangerZoneColorChanger(firstOutcome,secondOutcome,usps,awp){
+  var spreadsheet = SpreadsheetApp.getActive();
+  var value = spreadsheet.getRange('J10').getValue();
+  var visionsPrice = spreadsheet.getRange('J17').getValue();
+  var kissLovePrice = spreadsheet.getRange('K17').getValue();
+  var firstOutcomePrice = spreadsheet.getRange('J25').getValue();
+  var secondOutcomePrice = spreadsheet.getRange('K25').getValue();
+  var uspsPrice = spreadsheet.getRange('P25').getValue();
+  var awpPrice = spreadsheet.getRange('Q25').getValue();
+  var maxMoney = (((firstOutcomePrice*0.1+secondOutcomePrice*0.1+uspsPrice*0.4+awpPrice*0.4)/(1.13))-(visionsPrice + kissLovePrice))/8;
+  spreadsheet.getRange('J10').setValue(maxMoney);
+  // if (maxMoney > value){
+  //   ColorRed();
+  // }else{
+  //   ColorGreen();
+  // }
+  // return value;
+}
+
+function getCurrentCell() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet();
+  var range = sheet.getActiveCell();
+  var address = range.getA1Notation();
+  return address;
+}
