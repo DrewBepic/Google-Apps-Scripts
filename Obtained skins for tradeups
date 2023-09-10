@@ -1,0 +1,41 @@
+/** @OnlyCurrentDoc */
+
+function SortAandB() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  spreadsheet.getRange('A:A').activate()
+  .sort({column: 1, ascending: false});
+  spreadsheet.getRange('B:B').activate()
+  .sort({column: 2, ascending: false});
+};
+
+function DeleteUsedSkins() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  var SkinsUsed = spreadsheet.getRange('D8').getValue().toString();
+  var x = true;
+  var c = 1;
+  while(x){
+    var cellData = spreadsheet.getRange('A' + c.toString()).getValue();
+    if(cellData == ''){
+      x = false;
+    }
+    var cell = spreadsheet.getRange('A' + c.toString());
+    if(SkinsUsed.includes(cellData.toString())){
+      cell.setValue('');
+    }
+    c = c + 1;
+  }
+  c = 1;
+  x = true;
+  while(x){
+    var cellData = spreadsheet.getRange('B' + c.toString()).getValue();
+    if(cellData == ''){
+      x = false;
+    }
+    var cell = spreadsheet.getRange('B' + c.toString());
+    if(SkinsUsed.includes(cellData.toString())){
+      cell.setValue('');
+    }
+    c = c + 1;
+  }
+  SortAandB()
+};
