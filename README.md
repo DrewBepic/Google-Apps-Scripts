@@ -1,2 +1,2 @@
 # Google-Apps-Scripts
-Google Apps Script code for automation on google sheets
+These are Google Apps Scripts written in JavaScript for automation on my Google Sheets
