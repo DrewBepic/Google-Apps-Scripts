@@ -262,33 +262,79 @@ function customJoinRow(delimiter, range) {
   return result;
 }
 
-function ColorRed() {
+function ColorRed(where) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  sheet.getRange('J10').setBackgroundColor('#ff0000');
+  sheet.getRange(where).setBackgroundColor('#ff0000');
 }
 
-function ColorGreen() {
+function ColorGreen(where) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  sheet.getRange('J10').setBackgroundColor('#00ff00');
+  sheet.getRange(where).setBackgroundColor('#00ff00');
 }
 
-function skinsMonkeyDangerZoneColorChanger(firstOutcome,secondOutcome,usps,awp){
+function skinsMonkeyDangerZoneColorChanger(){
   var spreadsheet = SpreadsheetApp.getActive();
-  var value = spreadsheet.getRange('J10').getValue();
+  var valueMecha = spreadsheet.getRange('J10').getValue();
+  var valuePhosphor = spreadsheet.getRange('K10').getValue();
+  var valueMomentum = spreadsheet.getRange('L10').getValue();
+  var valueVogue = spreadsheet.getRange('M10').getValue();
+  var valueToothFairy = spreadsheet.getRange('N10').getValue();
+  var valueEntombed = spreadsheet.getRange('O10').getValue();
+  var valueBloodSport = spreadsheet.getRange('P10').getValue();
+  var valueImperialDragon = spreadsheet.getRange('Q10').getValue();
   var visionsPrice = spreadsheet.getRange('J17').getValue();
   var kissLovePrice = spreadsheet.getRange('K17').getValue();
-  var firstOutcomePrice = spreadsheet.getRange('J25').getValue();
-  var secondOutcomePrice = spreadsheet.getRange('K25').getValue();
-  var uspsPrice = spreadsheet.getRange('P25').getValue();
-  var awpPrice = spreadsheet.getRange('Q25').getValue();
-  var maxMoney = (((firstOutcomePrice*0.1+secondOutcomePrice*0.1+uspsPrice*0.4+awpPrice*0.4)/(1.13))-(visionsPrice + kissLovePrice))/8;
-  spreadsheet.getRange('J10').setValue(maxMoney);
-  // if (maxMoney > value){
-  //   ColorRed();
-  // }else{
-  //   ColorGreen();
-  // }
-  // return value;
+  var akAsiimovPrice = spreadsheet.getRange('J25').getValue();
+  var awpNeoNoirPrice = spreadsheet.getRange('K25').getValue();
+  var m4MechaIndustriesPrice = spreadsheet.getRange('L25').getValue();
+  var glockWastelandRebelPrice = spreadsheet.getRange('M25').getValue();
+  var deaglePrintstreamPrice = spreadsheet.getRange('N25').getValue();
+  var akLegionOfAnubisPrice = spreadsheet.getRange('O25').getValue();
+  var uspsPrintstreamPrice = spreadsheet.getRange('P25').getValue();
+  var awpChromaticPrice = spreadsheet.getRange('Q25').getValue();
+  var maxMoneyDangerZone = (((akAsiimovPrice*0.1+awpNeoNoirPrice*0.1+uspsPrintstreamPrice*0.4+awpChromaticPrice*0.4)/(1.125))-((visionsPrice + kissLovePrice)*4))/2;
+  var maxMoneyFracture = (((m4MechaIndustriesPrice*0.1+glockWastelandRebelPrice*0.1+uspsPrintstreamPrice*0.4+awpChromaticPrice*0.4)/(1.125))-((visionsPrice + kissLovePrice)*4))/2;
+  var maxMoneyGamma = (((deaglePrintstreamPrice*0.1+akLegionOfAnubisPrice*0.1+uspsPrintstreamPrice*0.4+awpChromaticPrice*0.4)/(1.125))-((visionsPrice + kissLovePrice)*4))/2;
+  if (maxMoneyDangerZone > valueMecha){
+    ColorGreen('J10');
+  }else{
+    ColorRed('J10');
+  }
+  if (maxMoneyDangerZone > valuePhosphor){
+    ColorGreen('K10');
+  }else{
+    ColorRed('K10');
+  }
+  if (maxMoneyDangerZone > valueMomentum){
+    ColorGreen('L10');
+  }else{
+    ColorRed('L10');
+  }
+  if (maxMoneyDangerZone > valueVogue){
+    ColorGreen('M10');
+  }else{
+    ColorRed('M10');
+  }
+  if (maxMoneyDangerZone > valueToothFairy){
+    ColorGreen('N10');
+  }else{
+    ColorRed('N10');
+  }
+  if (maxMoneyDangerZone > valueEntombed){
+    ColorGreen('O10');
+  }else{
+    ColorRed('O10');
+  }
+  if (maxMoneyDangerZone > valueBloodSport){
+    ColorGreen('P10');
+  }else{
+    ColorRed('P10');
+  }
+  if (maxMoneyDangerZone > valueMomentum){
+    ColorGreen('Q10');
+  }else{
+    ColorRed('Q10');
+  }
 }
 
 function getCurrentCell() {
